@@ -1,8 +1,10 @@
+import java.util.ArrayList;
 public class Bungalo extends Gestionable
 {
     private String nombre;
     private int capacidad;
     private float precio;
+    private ArrayList<ReservaBungalo> reservas;
 
     public Bungalo(String id, String nombre, int capacidad, float precio)
     {
