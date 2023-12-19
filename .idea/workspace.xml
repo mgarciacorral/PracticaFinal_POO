@@ -4,22 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02a16236-61f3-466e-9c1c-5a9453c96538" name="Changes" comment="prueba">
-      <change afterPath="$PROJECT_DIR$/src/Actividad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BungaloAdaptado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Cliente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Factura.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GestorActividades.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GestorBungalos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GestorClientes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GestorGeneralSingleton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Reserva.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ReservaActividad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ReservaBungalo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ServicioEspecialDecorator.java" afterDir="false" />
+    <list default="true" id="02a16236-61f3-466e-9c1c-5a9453c96538" name="Changes" comment="primer dia, base hecha">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bungalo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bungalo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +62,7 @@
       <workItem from="1701357933315" duration="620000" />
       <workItem from="1701447131783" duration="11000" />
       <workItem from="1702916778602" duration="417000" />
-      <workItem from="1702982675851" duration="2025000" />
+      <workItem from="1702982675851" duration="3451000" />
     </task>
     <task id="LOCAL-00001" summary="prueba">
       <option name="closed" value="true" />
@@ -86,7 +72,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701357959321</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="primer dia, base hecha">
+      <option name="closed" value="true" />
+      <created>1702984923130</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1702984923130</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,6 +88,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="prueba" />
-    <option name="LAST_COMMIT_MESSAGE" value="prueba" />
+    <MESSAGE value="primer dia, base hecha" />
+    <option name="LAST_COMMIT_MESSAGE" value="primer dia, base hecha" />
   </component>
 </project>
