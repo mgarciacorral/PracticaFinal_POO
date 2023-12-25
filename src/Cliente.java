@@ -12,5 +12,22 @@ public class Cliente
         this.identificador = id;
         this.nombre = nombre;
         this.telefono = telefono;
+        facturas = new ArrayList<Factura>();
     }
+
+    public String getId()
+    {
+        return identificador;
+    }
+
+    public String getNombre()
+    {
+        return nombre;
+    }
+
+    public String getTelefono()
+    {
+        return telefono;
+    }
+
 }

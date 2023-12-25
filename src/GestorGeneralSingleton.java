@@ -59,4 +59,66 @@ public class GestorGeneralSingleton
             }
         }while(opc != 0);
     }
+
+    public void menuClientes()
+    {
+        int opc = -1;
+        Scanner sc = new Scanner(System.in);
+        do
+        {
+            System.out.println("\tMenu De Gestion De Clientes");
+            System.out.println("\t---------------------------\n");
+            System.out.print("1.-Añadir cliente\n2.-Listar clientes\n3.-Mostrar informacion de un cliente\n0.-Volver al menu principal\n\nElige una opcion: ");
+            opc = sc.nextInt();
+
+            switch(opc)
+            {
+                case 1:
+                    gestClientes.addCliente();
+                    break;
+                case 2:
+                    gestClientes.listarClientes();
+                    break;
+                case 3:
+                    gestClientes.mostrarCliente();
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("Opcion no valida, pruebe de nuevo.");
+                    break;
+            }
+        }while(opc != 0);
+    }
+
+    public void menuActividades()
+    {
+        int opc = -1;
+        Scanner sc = new Scanner(System.in);
+        do
+        {
+            System.out.println("\tMenu De Gestion De Actividades");
+            System.out.println("\t------------------------------\n");
+            System.out.print("1.-Añadir actividad\n2.-Listar actividades\n3.-Mostrar informacion de una actividad\n0.-Volver al menu principal\n\nElige una opcion: ");
+            opc = sc.nextInt();
+
+            switch(opc)
+            {
+                case 1:
+                    gestActividades.addActividad();
+                    break;
+                case 2:
+                    gestActividades.listarActividades();
+                    break;
+                case 3:
+                    gestActividades.mostrarActividad();
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("Opcion no valida, pruebe de nuevo.");
+                    break;
+            }
+        }while(opc != 0);
+    }
 }

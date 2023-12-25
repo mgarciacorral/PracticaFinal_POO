@@ -17,7 +17,7 @@ public class Menu
         {
             System.out.println("\tMenu Principal Del Gestor Del Resort");
             System.out.println("\t------------------------------------\n");
-            System.out.print("1.-Gestion de Bungalos\n2.-Gestion de Clientes\n3.-Gestion de Sctividades\n4.-Gestion de Reservas\n5.-Gestion de Facturacion\n6.-Salvar datos\n0.-Salir\n\nElige una opcion: ");
+            System.out.print("1.-Gestion de Bungalos\n2.-Gestion de Clientes\n3.-Gestion de Actividades\n4.-Gestion de Reservas\n5.-Gestion de Facturacion\n6.-Salvar datos\n0.-Salir\n\nElige una opcion: ");
             opc = sc.nextInt();
 
             switch(opc)
@@ -27,6 +27,12 @@ public class Menu
                     break;
                 case 1:
                     gestor.menuBungalos();
+                    break;
+                case 2:
+                    gestor.menuClientes();
+                    break;
+                case 3:
+                    gestor.menuActividades();
                     break;
                 default:
                     System.out.println("Opcion no valida, pruebe de nuevo.");

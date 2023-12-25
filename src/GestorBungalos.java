@@ -14,6 +14,7 @@ public class GestorBungalos
     public void altaBungalo()
     {
         String id = "B" + contador;
+        contador++;
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Introduzca el nombre del bungalo: ");
@@ -86,17 +87,19 @@ public class GestorBungalos
 
     public void mostrarBungalo()
     {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Introduzca el id del bungalo a mostrar: ");
+Scanner sc = new Scanner(System.in);
+        System.out.print("Introduzca el id del bungalo: ");
         String id = sc.nextLine();
         for (int i = 0; i < bungalos.size(); i++)
         {
             if (bungalos.get(i).getId().equals(id))
             {
+                System.out.println("\nInformacion del bungalo:");
+                System.out.println("-----------------------");
                 System.out.println("ID: " + bungalos.get(i).getId());
                 System.out.println("Nombre: " + bungalos.get(i).getNombre());
                 System.out.println("Capacidad: " + bungalos.get(i).getCapacidad());
-                System.out.println("Precio por dia: " + bungalos.get(i).getPrecio());
+                System.out.println("Precio: " + bungalos.get(i).getPrecio());
                 System.out.println("Numero de reservas: " + bungalos.get(i).getNumReservas());
                 return;
             }
