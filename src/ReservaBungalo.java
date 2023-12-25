@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class ReservaBungalo extends  Reserva
 {
@@ -8,7 +8,7 @@ public class ReservaBungalo extends  Reserva
     private ArrayList<Actividad> actividades;
     private String id;
 
-    public  ReservaBungalo(Date fechaInicio, Date fechaFin, Bungalo bungalo, Cliente cliente, String id)
+    public  ReservaBungalo(LocalDateTime fechaInicio, LocalDateTime fechaFin, Bungalo bungalo, Cliente cliente, String id)
     {
         super(fechaInicio, fechaFin);
         this.bungalo = bungalo;

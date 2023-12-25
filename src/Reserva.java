@@ -1,15 +1,20 @@
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Reserva
 {
     private ArrayList<Reserva> reservas;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private LocalDateTime fechaInicio;
+    private LocalDateTime fechaFin;
 
-    public Reserva(Date fechaInicio, Date fechaFin)
+    public Reserva(LocalDateTime fechaInicio, LocalDateTime fechaFin)
     {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
+    }
+
+    public int getReservas()
+    {
+        return reservas.size();
     }
 }

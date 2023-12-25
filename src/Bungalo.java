@@ -1,5 +1,8 @@
+import java.time.LocalDateTime;
+
 public class Bungalo
 {
+    private Reserva reservas;
     private String id;
     private String nombre;
     private int capacidad;
@@ -11,5 +14,31 @@ public class Bungalo
         this.nombre = nombre;
         this.capacidad = capacidad;
         this.precio = precio;
+        reservas = new Reserva(LocalDateTime.of(2004, 6, 4, 0, 0), LocalDateTime.of(2004, 6, 4, 0, 0));
+    }
+
+    public String getId()
+    {
+        return id;
+    }
+
+    public int getCapacidad()
+    {
+        return capacidad;
+    }
+
+    public String  getNombre()
+    {
+        return nombre;
+    }
+
+    public float getPrecio()
+    {
+        return precio;
+    }
+
+    public int getNumReservas()
+    {
+        return reservas.getReservas();
     }
 }
