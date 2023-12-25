@@ -62,24 +62,24 @@ public class GestorBungalos
 
     public void listarBungalosAdaptados()
     {
-        System.out.println("Listado de bungalos adaptados: \n\nID\tCapacidad");
+        System.out.println("Listado de bungalos adaptados: \n\nID\t\tCapacidad");
         for (int i = 0; i < bungalos.size(); i++)
         {
             if (bungalos.get(i) instanceof BungaloAdaptado)
             {
-                System.out.println(bungalos.get(i).getId() + "\t" + bungalos.get(i).getCapacidad());
+                System.out.println(bungalos.get(i).getId() + "\t\t" + bungalos.get(i).getCapacidad());
             }
         }
     }
 
     public void listarBungalosNoAdaptados()
     {
-        System.out.println("Listado de bungalos NO adaptados: \n\nID\tCapacidad");
+        System.out.println("Listado de bungalos NO adaptados: \n\nID\t\tCapacidad");
         for (int i = 0; i < bungalos.size(); i++)
         {
             if (!(bungalos.get(i) instanceof BungaloAdaptado))
             {
-                System.out.println(bungalos.get(i).getId() + "\t" + bungalos.get(i).getCapacidad());
+                System.out.println(bungalos.get(i).getId() + "\t\t" + bungalos.get(i).getCapacidad());
             }
         }
     }

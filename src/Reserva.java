@@ -11,6 +11,7 @@ public class Reserva
     {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
+        reservas = new ArrayList<Reserva>();
     }
 
     public int getReservas()
