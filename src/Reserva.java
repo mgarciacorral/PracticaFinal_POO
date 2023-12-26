@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 
-public class Reserva
+public class Reserva implements java.io.Serializable
 {
     private ArrayList<Reserva> reservas;
     private LocalDateTime fechaInicio;

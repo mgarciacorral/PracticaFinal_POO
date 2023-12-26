@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class GestorActividades
+public class GestorActividades implements java.io.Serializable
 {
     private ArrayList<Actividad> actividades;
     private static int contador = 0;

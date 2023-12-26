@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Cliente
+public class Cliente implements java.io.Serializable
 {
     private String identificador;
     private String nombre;

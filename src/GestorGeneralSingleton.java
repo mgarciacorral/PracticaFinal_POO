@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class GestorGeneralSingleton
+public class GestorGeneralSingleton implements java.io.Serializable
 {
     static GestorGeneralSingleton instance = null;
     private GestorClientes gestClientes;

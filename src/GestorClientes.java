@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import  java.util.Scanner;
 
-public class GestorClientes
+public class GestorClientes implements java.io.Serializable
 {
     private ArrayList<Cliente> clientes;
 

@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class Factura
+public class Factura implements java.io.Serializable
 {
     private String id;
     private String costeTotal;

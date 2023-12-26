@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Menu
+public class Menu implements java.io.Serializable
 {
     private GestorGeneralSingleton gestor;
 

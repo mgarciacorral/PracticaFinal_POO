@@ -1,6 +1,6 @@
 import java.time.LocalDateTime;
 
-public class Bungalo
+public class Bungalo implements java.io.Serializable
 {
     private Reserva reservas;
     private String id;

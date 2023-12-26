@@ -1,4 +1,4 @@
-public class Actividad
+public class Actividad implements java.io.Serializable
 {
     private String id;
     private String descripcion;

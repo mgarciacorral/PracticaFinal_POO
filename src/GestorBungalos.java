@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class GestorBungalos
+public class GestorBungalos implements java.io.Serializable
 {
     private ArrayList<Bungalo> bungalos;
     private static int contador = 0;
@@ -71,6 +71,8 @@ public class GestorBungalos
                 System.out.println(bungalos.get(i).getId() + "\t\t" + bungalos.get(i).getCapacidad());
             }
         }
+
+
     }
 
     public void listarBungalosNoAdaptados()
