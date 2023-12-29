@@ -41,4 +41,15 @@ public class Bungalo implements java.io.Serializable
     {
         return reservas.getReservas();
     }
+
+    public boolean comprobarDisponibilidad(LocalDateTime fechaInicio, LocalDateTime fechaFin)
+    {
+        return reservas.comprobarDisponibilidad(fechaInicio, fechaFin);
+    }
+
+    public void addReserva(LocalDateTime fechaInicio, LocalDateTime fechaFin)
+    {
+        reservas.addReserva(fechaInicio, fechaFin);
+    }
+
 }

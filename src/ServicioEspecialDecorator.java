@@ -1,10 +1,10 @@
-public class ServicioEspecialDecorator extends BungaloAdaptado
+public class ServicioEspecialDecorator extends ReservaBungalo
 {
-    private BungaloAdaptado bungalo;
+    private ReservaBungalo reserva;
 
-    public ServicioEspecialDecorator(BungaloAdaptado bungalo)
+    public ServicioEspecialDecorator(ReservaBungalo reserva)
     {
-        super(" ", " ", 0, 0);
-        this.bungalo = bungalo;
+        super(reserva.getFechaInicio(), reserva.getFechaFin(), reserva.getBungalo(), reserva.getCliente(), reserva.getId());
+        this.reserva = reserva;
     }
 }

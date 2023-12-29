@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.time.LocalDateTime;
 
 public class GestorBungalos implements java.io.Serializable
 {
     private ArrayList<Bungalo> bungalos;
-    private static int contador = 0;
+    private int contador = 0;
 
     public GestorBungalos()
     {
@@ -89,7 +90,7 @@ public class GestorBungalos implements java.io.Serializable
 
     public void mostrarBungalo()
     {
-Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.print("Introduzca el id del bungalo: ");
         String id = sc.nextLine();
         for (int i = 0; i < bungalos.size(); i++)
@@ -107,5 +108,146 @@ Scanner sc = new Scanner(System.in);
             }
         }
         System.out.println("No se ha encontrado el bungalo.");
+    }
+
+    public void reservarAdaptado(Bungalo bungalo, LocalDateTime fechaInicio, LocalDateTime fechaFin)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Tiene disponibles los siguientes servicios especiales:\n1- Catering\n2- Asistente personal");
+        System.out.print("Introduzca el numero del servicio que desea, 0 si no desea ninguno o 3 si desea ambos servicios: ");
+        int opcion = sc.nextInt();
+
+        switch (opcion)
+        {
+            case 0:
+                bungalo.addReserva(fechaInicio, fechaFin);
+                System.out.println("Reserva realizada.");
+                break;
+            case 1:
+                bungalo.addReserva(fechaInicio, fechaFin);
+                System.out.println("Reserva realizada.");
+                break;
+            case 2:
+                bungalo.addReserva(fechaInicio, fechaFin);
+                System.out.println("Reserva realizada.");
+                break;
+            case 3:
+                bungalo.addReserva(fechaInicio, fechaFin);
+                System.out.println("Reserva realizada.");
+                break;
+            default:
+                System.out.println("Opcion invalida.");
+                break;
+        }
+    }
+
+    public void hacerReserva()
+    {
+        Scanner sc = new Scanner(System.in);
+        String adaptado;
+        System.out.println("El bungalo debe ser adaptado? (s/n): ");
+        adaptado = sc.nextLine();
+
+        System.out.println("Introduzca la fecha de inicio de la reserva: ");
+        System.out.print("Dia: ");
+        int diaInicio = sc.nextInt();
+        System.out.print("Mes: ");
+        int mesInicio = sc.nextInt();
+        System.out.print("Año: ");
+        int anioInicio = sc.nextInt();
+
+        System.out.println("Introduzca la fecha de fin de la reserva: ");
+        System.out.print("Dia: ");
+        int diaFin = sc.nextInt();
+        System.out.print("Mes: ");
+        int mesFin = sc.nextInt();
+        System.out.print("Año: ");
+        int anioFin = sc.nextInt();
+
+        LocalDateTime fechaInicio = LocalDateTime.of(anioInicio, mesInicio, diaInicio, 0, 0);
+        LocalDateTime fechaFin = LocalDateTime.of(anioFin, mesFin, diaFin, 0, 0);
+
+        System.out.print("Introduzca el numero de personas que se alojara en el bungalow: ");
+        int numPersonas = sc.nextInt();
+
+        System.out.println("Listado de bungalos disponibles ");
+        System.out.println("--------------------------------");
+        ArrayList<String> bungalosDisponibles = new ArrayList<String>();
+
+        if(adaptado.equals("s"))
+        {
+            for(int i = 0; i < bungalos.size(); i++)
+            {
+                int cont = 0;
+                if(bungalos.get(i) instanceof BungaloAdaptado)
+                {
+                    if(bungalos.get(i).getCapacidad() >= numPersonas)
+                    {
+                        if(bungalos.get(i).comprobarDisponibilidad(fechaInicio, fechaFin))
+                        {
+                            cont += 1;
+                            bungalosDisponibles.add(bungalos.get(i).getId());
+                            System.out.println(cont + " -. " + bungalos.get(i).getId());
+                        }
+                    }
+                }
+
+                if(cont == 0)
+                {
+                    System.out.println("No hay bungalos disponibles.");
+                    return;
+                }
+            }
+        }
+        else
+        {
+            for(int i = 0; i < bungalos.size(); i++)
+            {
+                int cont = 0;
+                if(!(bungalos.get(i) instanceof BungaloAdaptado))
+                {
+                    if(bungalos.get(i).getCapacidad() >= numPersonas)
+                    {
+                        if(bungalos.get(i).comprobarDisponibilidad(fechaInicio, fechaFin))
+                        {
+                            cont += 1;
+                            bungalosDisponibles.add(bungalos.get(i).getId());
+                            System.out.println(cont + " -. " + bungalos.get(i).getId());
+                        }
+                    }
+                }
+
+                if(cont == 0)
+                {
+                    System.out.println("No hay bungalos disponibles.");
+                    return;
+                }
+            }
+        }
+
+        System.out.print("Introduzca el id del bungalo que desea reservar: ");
+        String id = sc.nextLine();
+        for(int i = 0; i < bungalosDisponibles.size(); i++)
+        {
+            if(bungalosDisponibles.get(i).equals(id))
+            {
+                for(int j = 0; j < bungalos.size(); j++)
+                {
+                    if(bungalos.get(j).getId().equals(id))
+                    {
+                        if(adaptado.equals("s"))
+                        {
+                            reservarAdaptado(bungalos.get(j), fechaInicio, fechaFin);
+                        }
+                        else
+                        {
+                            bungalos.get(j).addReserva(fechaInicio, fechaFin);
+                            System.out.println("Reserva realizada.");
+                            return;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

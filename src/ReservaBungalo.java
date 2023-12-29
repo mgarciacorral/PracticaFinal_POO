@@ -15,4 +15,19 @@ public class ReservaBungalo extends  Reserva
         this.cliente = cliente;
         this.id = id;
     }
+
+    public String getId()
+    {
+        return id;
+    }
+
+    public Bungalo getBungalo()
+    {
+        return bungalo;
+    }
+
+    public Cliente getCliente()
+    {
+        return cliente;
+    }
 }
