@@ -9,9 +9,9 @@ public class GestorGeneralSingleton implements java.io.Serializable
 
     private GestorGeneralSingleton()
     {
-        gestClientes = new GestorClientes();
-        gestBungalos = new GestorBungalos();
-        gestActividades = new GestorActividades();
+        gestClientes = GestorClientes.getInstance();
+        gestBungalos = GestorBungalos.getInstance();
+        gestActividades = GestorActividades.getInstance();
     }
 
     public static GestorGeneralSingleton getInstance()
@@ -112,6 +112,46 @@ public class GestorGeneralSingleton implements java.io.Serializable
                     break;
                 case 3:
                     gestActividades.mostrarActividad();
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("Opcion no valida, pruebe de nuevo.");
+                    break;
+            }
+        }while(opc != 0);
+    }
+
+    public void menuReservas()
+    {
+        int opc = -1;
+        Scanner sc = new Scanner(System.in);
+        do
+        {
+            System.out.println("\tMenu De Gestion De Reservas");
+            System.out.println("\t---------------------------\n");
+            System.out.print("1.-Hacer reserva\n2.-Eliminar reserva\n3.-Añadir actividad a reserva\n4.-Eliminar actividad de reserva\n5.-Listar reservas de un bungalo\n6.-Mostrar reserva concreta\n0.-Volver al menu principal\n\nElige una opcion: ");
+            opc = sc.nextInt();
+
+            switch(opc)
+            {
+                case 1:
+                    gestBungalos.reservar();
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+                case 5:
+
+                    break;
+                case 6:
+
                     break;
                 case 0:
                     break;

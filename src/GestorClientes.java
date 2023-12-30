@@ -4,10 +4,20 @@ import  java.util.Scanner;
 public class GestorClientes implements java.io.Serializable
 {
     private ArrayList<Cliente> clientes;
+    static GestorClientes instance;
 
-    public GestorClientes()
+    private GestorClientes()
     {
         clientes = new ArrayList<Cliente>();
+    }
+
+    public static GestorClientes getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new GestorClientes();
+        }
+        return instance;
     }
 
     public  void addCliente()
@@ -36,8 +46,8 @@ public class GestorClientes implements java.io.Serializable
     {
         System.out.println("Listado de clientes:");
         System.out.println("--------------------");
-        System.out.println("ID\t\tNombre");
-        System.out.println("--\t\t------");
+        System.out.println("ID       \t\tNombre");
+        System.out.println("---------\t\t------");
 
         for(int i = 0; i < clientes.size(); i++)
         {
@@ -63,5 +73,17 @@ public class GestorClientes implements java.io.Serializable
             }
         }
         System.out.println("No se ha encontrado el cliente.");
+    }
+
+    public Cliente getCliente(String id)
+    {
+        for(int i = 0;i < clientes.size(); i++)
+        {
+            if(id.equals(clientes.get(i).getId()))
+            {
+                return clientes.get(i);
+            }
+        }
+        return null;
     }
 }

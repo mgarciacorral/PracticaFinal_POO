@@ -1,13 +1,13 @@
 import java.util.ArrayList;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Reserva implements java.io.Serializable
 {
     private ArrayList<Reserva> reservas;
-    private LocalDateTime fechaInicio;
-    private LocalDateTime fechaFin;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
 
-    public Reserva(LocalDateTime fechaInicio, LocalDateTime fechaFin)
+    public Reserva(LocalDate fechaInicio, LocalDate fechaFin)
     {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
@@ -19,7 +19,7 @@ public class Reserva implements java.io.Serializable
         return reservas.size();
     }
 
-    public boolean comprobarDisponibilidad(LocalDateTime fechaInicio, LocalDateTime fechaFin)
+    public boolean comprobarDisponibilidad(LocalDate fechaInicio, LocalDate fechaFin)
     {
         for (int i = 0; i < reservas.size(); i++)
         {
@@ -31,20 +31,18 @@ public class Reserva implements java.io.Serializable
         return true;
     }
 
-    public void addReserva(LocalDateTime fechaInicio, LocalDateTime fechaFin)
+    public void addReserva(ReservaBungalo reserva)
     {
-        reservas.add(new Reserva(fechaInicio, fechaFin));
+        reservas.add(reserva);
     }
 
-    public LocalDateTime getFechaInicio()
+    public LocalDate getFechaInicio()
     {
         return fechaInicio;
     }
 
-    public LocalDateTime getFechaFin()
+    public LocalDate getFechaFin()
     {
         return fechaFin;
     }
-
-
 }

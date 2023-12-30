@@ -1,15 +1,28 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class GestorBungalos implements java.io.Serializable
 {
     private ArrayList<Bungalo> bungalos;
     private int contador = 0;
+    static GestorBungalos instance;
+    private GestorClientes gestClientes;
+    private int contReservas;
 
-    public GestorBungalos()
+    private GestorBungalos()
     {
         bungalos = new ArrayList<Bungalo>();
+        gestClientes = GestorClientes.getInstance();
+    }
+
+    public static GestorBungalos getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new GestorBungalos();
+        }
+        return instance;
     }
 
     public void altaBungalo()
@@ -110,62 +123,55 @@ public class GestorBungalos implements java.io.Serializable
         System.out.println("No se ha encontrado el bungalo.");
     }
 
-    public LocalDateTime crearFecha()
+    public LocalDate crearFecha()
     {
         Scanner sc = new Scanner(System.in);
         System.out.print("en formato AAAA-MM-DD: ");
         String f= sc.nextLine();
         try{
-            return LocalDateTime.parse(f);
+            return LocalDate.parse(f);
         } catch (Exception e) {
             System.out.println("Fecha no válida");
             return crearFecha();
         }
     }
 
-    public void reservarAdaptado(Bungalo bungalo, LocalDateTime fechaInicio, LocalDateTime fechaFin)
+    public void reservarAdaptado(Bungalo bungalo, LocalDate fechaInicio, LocalDate fechaFin, Cliente cliente, String id)
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Tiene disponibles los siguientes servicios especiales:\n1- Catering\n2- Asistente personal");
-        System.out.print("Introduzca el numero del servicio que desea, 0 si no desea ninguno o 3 si desea ambos servicios: ");
-        int opcion = sc.nextInt();
 
-        switch (opcion)
+        System.out.print("Desea añadir servicio de catering (s/n): ");
+        String opc = sc.nextLine();
+
+        if(opc.equals("s"))
         {
-            case 0:
-                bungalo.addReserva(fechaInicio, fechaFin);
-                System.out.println("Reserva realizada.");
-                break;
-            case 1:
-                bungalo.addReserva(fechaInicio, fechaFin);
-                System.out.println("Reserva realizada.");
-                break;
-            case 2:
-                bungalo.addReserva(fechaInicio, fechaFin);
-                System.out.println("Reserva realizada.");
-                break;
-            case 3:
-                bungalo.addReserva(fechaInicio, fechaFin);
-                System.out.println("Reserva realizada.");
-                break;
-            default:
-                System.out.println("Opcion invalida.");
-                break;
+            bungalo = new ServicioCatering(bungalo);
         }
+
+        System.out.print("Desea añadir servicio de asistente (s/n): ");
+        opc = sc.nextLine();
+
+        if(opc.equals("s"))
+        {
+            bungalo = new ServicioAsistente(bungalo);
+        }
+
+        bungalo.addReserva(new ReservaBungalo(fechaInicio, fechaFin, bungalo, cliente, id));
+        System.out.println("Reserva realizada.");
     }
 
-    public void hacerReserva()
+    public void hacerReserva(Cliente cliente)
     {
         Scanner sc = new Scanner(System.in);
         String adaptado;
-        System.out.println("El bungalo debe ser adaptado? (s/n): ");
+        System.out.print("El bungalo debe ser adaptado? (s/n): ");
         adaptado = sc.nextLine();
 
-        System.out.println("Introduzca la fecha de inicio de la reserva ");
-        LocalDateTime fechaInicio = crearFecha();
+        System.out.print("Introduzca la fecha de inicio de la reserva ");
+        LocalDate fechaInicio = crearFecha();
 
-        System.out.println("Introduzca la fecha de fin de la reserva ");
-        LocalDateTime fechaFin = crearFecha();
+        System.out.print("Introduzca la fecha de fin de la reserva ");
+        LocalDate fechaFin = crearFecha();
 
         System.out.print("Introduzca el numero de personas que se alojara en el bungalow: ");
         int numPersonas = sc.nextInt();
@@ -203,8 +209,11 @@ public class GestorBungalos implements java.io.Serializable
         }
 
         System.out.print("Introduzca el id del bungalo que desea reservar: ");
-        String idLeido = sc.nextLine();
+        Scanner s = new Scanner(System.in);
+        String idLeido;
+        idLeido = s.nextLine();
         String id = new String(" ");
+
         for(int i = 0; i < bungalosDisponibles.size(); i++)
         {
             if(bungalosDisponibles.get(i).equals(idLeido))
@@ -223,17 +232,34 @@ public class GestorBungalos implements java.io.Serializable
         {
             if(bungalos.get(j).getId().equals(id))
             {
+                String idReserva = "R" + contReservas;
+                contReservas += 1;
                 if(adaptado.equals("s"))
                 {
-                    reservarAdaptado(bungalos.get(j), fechaInicio, fechaFin);
+                    reservarAdaptado(bungalos.get(j), fechaInicio, fechaFin, cliente, idReserva);
                 }
                 else
                 {
-                    bungalos.get(j).addReserva(fechaInicio, fechaFin);
+                    bungalos.get(j).addReserva(new ReservaBungalo(fechaInicio, fechaFin, bungalos.get(j), cliente, idReserva));
                     System.out.println("Reserva realizada.");
                     return;
                 }
             }
         }
+    }
+
+    public void reservar()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Introduce el identificador fiscal del cliente: ");
+        String id = sc.nextLine();
+
+        if(gestClientes.getCliente(id) == null)
+        {
+            System.out.println("El cliente que quiere reservar aun no esta registrado, introduzca sus datos a continuacion: ");
+            gestClientes.addCliente();
+        }
+
+        hacerReserva(gestClientes.getCliente(id));
     }
 }

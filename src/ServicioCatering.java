@@ -1,8 +1,8 @@
 public class ServicioCatering extends ServicioEspecialDecorator
 {
 
-    public ServicioCatering(ReservaBungalo reserva)
+    public ServicioCatering(Bungalo bungalo)
     {
-        super(reserva);
+        super(bungalo);
     }
 }

@@ -1,4 +1,4 @@
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Bungalo implements java.io.Serializable
 {
@@ -14,7 +14,7 @@ public class Bungalo implements java.io.Serializable
         this.nombre = nombre;
         this.capacidad = capacidad;
         this.precio = precio;
-        reservas = new Reserva(LocalDateTime.of(2004, 6, 4, 0, 0), LocalDateTime.of(2004, 6, 4, 0, 0));
+        reservas = new Reserva(LocalDate.of(2004, 6, 4), LocalDate.of(2004, 6, 4));
     }
 
     public String getId()
@@ -42,14 +42,14 @@ public class Bungalo implements java.io.Serializable
         return reservas.getReservas();
     }
 
-    public boolean comprobarDisponibilidad(LocalDateTime fechaInicio, LocalDateTime fechaFin)
+    public boolean comprobarDisponibilidad(LocalDate fechaInicio, LocalDate fechaFin)
     {
         return reservas.comprobarDisponibilidad(fechaInicio, fechaFin);
     }
 
-    public void addReserva(LocalDateTime fechaInicio, LocalDateTime fechaFin)
+    public void addReserva(ReservaBungalo reserva)
     {
-        reservas.addReserva(fechaInicio, fechaFin);
+        reservas.addReserva(reserva);
     }
 
 }

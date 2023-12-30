@@ -1,10 +1,10 @@
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class ReservaActividad extends  Reserva
 {
     private Actividad actividad;
 
-    public  ReservaActividad(LocalDateTime fechaInicio, LocalDateTime fechaFin, Actividad actividad)
+    public  ReservaActividad(LocalDate fechaInicio, LocalDate fechaFin, Actividad actividad)
     {
         super(fechaInicio, fechaFin);
         this.actividad = actividad;

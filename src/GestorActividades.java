@@ -5,10 +5,20 @@ public class GestorActividades implements java.io.Serializable
 {
     private ArrayList<Actividad> actividades;
     private int contador = 0;
+    static GestorActividades instance;
 
-    public GestorActividades()
+    private GestorActividades()
     {
         actividades = new ArrayList<Actividad>();
+    }
+
+    public static GestorActividades getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new GestorActividades();
+        }
+        return instance;
     }
 
     public void addActividad()

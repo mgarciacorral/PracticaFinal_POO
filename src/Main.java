@@ -5,12 +5,12 @@ public class Main
     public static void main(String[] args)
     {
 
-        Menu menu = MySerializer.deserialize("menu.dat");
-        if (menu==null)
-            menu = new Menu();
+        GestorGeneralSingleton gestor = MySerializer.deserialize("gestor.dat");
+        if (gestor == null)
+            gestor = GestorGeneralSingleton.getInstance();
+
+        Menu menu = new Menu(gestor);
 
         menu.ejecutar();
-
-        MySerializer.serialize(menu,"menu.dat");
     }
 }
