@@ -110,6 +110,19 @@ public class GestorBungalos implements java.io.Serializable
         System.out.println("No se ha encontrado el bungalo.");
     }
 
+    public LocalDateTime crearFecha()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("en formato AAAA-MM-DD: ");
+        String f= sc.nextLine();
+        try{
+            return LocalDateTime.parse(f);
+        } catch (Exception e) {
+            System.out.println("Fecha no válida");
+            return crearFecha();
+        }
+    }
+
     public void reservarAdaptado(Bungalo bungalo, LocalDateTime fechaInicio, LocalDateTime fechaFin)
     {
         Scanner sc = new Scanner(System.in);
@@ -148,24 +161,11 @@ public class GestorBungalos implements java.io.Serializable
         System.out.println("El bungalo debe ser adaptado? (s/n): ");
         adaptado = sc.nextLine();
 
-        System.out.println("Introduzca la fecha de inicio de la reserva: ");
-        System.out.print("Dia: ");
-        int diaInicio = sc.nextInt();
-        System.out.print("Mes: ");
-        int mesInicio = sc.nextInt();
-        System.out.print("Año: ");
-        int anioInicio = sc.nextInt();
+        System.out.println("Introduzca la fecha de inicio de la reserva ");
+        LocalDateTime fechaInicio = crearFecha();
 
-        System.out.println("Introduzca la fecha de fin de la reserva: ");
-        System.out.print("Dia: ");
-        int diaFin = sc.nextInt();
-        System.out.print("Mes: ");
-        int mesFin = sc.nextInt();
-        System.out.print("Año: ");
-        int anioFin = sc.nextInt();
-
-        LocalDateTime fechaInicio = LocalDateTime.of(anioInicio, mesInicio, diaInicio, 0, 0);
-        LocalDateTime fechaFin = LocalDateTime.of(anioFin, mesFin, diaFin, 0, 0);
+        System.out.println("Introduzca la fecha de fin de la reserva ");
+        LocalDateTime fechaFin = crearFecha();
 
         System.out.print("Introduzca el numero de personas que se alojara en el bungalow: ");
         int numPersonas = sc.nextInt();
@@ -174,78 +174,64 @@ public class GestorBungalos implements java.io.Serializable
         System.out.println("--------------------------------");
         ArrayList<String> bungalosDisponibles = new ArrayList<String>();
 
-        if(adaptado.equals("s"))
+        int cont = 0;
+        for(int i = 0; i < bungalos.size(); i++)
         {
-            for(int i = 0; i < bungalos.size(); i++)
+            if(adaptado.equals("s"))
             {
-                int cont = 0;
-                if(bungalos.get(i) instanceof BungaloAdaptado)
+                if(bungalos.get(i) instanceof BungaloAdaptado && bungalos.get(i).getCapacidad() >= numPersonas && bungalos.get(i).comprobarDisponibilidad(fechaInicio, fechaFin))
                 {
-                    if(bungalos.get(i).getCapacidad() >= numPersonas)
-                    {
-                        if(bungalos.get(i).comprobarDisponibilidad(fechaInicio, fechaFin))
-                        {
-                            cont += 1;
-                            bungalosDisponibles.add(bungalos.get(i).getId());
-                            System.out.println(cont + " -. " + bungalos.get(i).getId());
-                        }
-                    }
+                    cont += 1;
+                    bungalosDisponibles.add(bungalos.get(i).getId());
+                    System.out.println(cont + " -. " + bungalos.get(i).getId());
                 }
-
-                if(cont == 0)
+            }
+            else
+            {
+                if(!(bungalos.get(i) instanceof BungaloAdaptado) && bungalos.get(i).getCapacidad() >= numPersonas && bungalos.get(i).comprobarDisponibilidad(fechaInicio, fechaFin))
                 {
-                    System.out.println("No hay bungalos disponibles.");
-                    return;
+                    cont += 1;
+                    bungalosDisponibles.add(bungalos.get(i).getId());
+                    System.out.println(cont + " -. " + bungalos.get(i).getId());
                 }
             }
         }
-        else
+        if(cont == 0)
         {
-            for(int i = 0; i < bungalos.size(); i++)
-            {
-                int cont = 0;
-                if(!(bungalos.get(i) instanceof BungaloAdaptado))
-                {
-                    if(bungalos.get(i).getCapacidad() >= numPersonas)
-                    {
-                        if(bungalos.get(i).comprobarDisponibilidad(fechaInicio, fechaFin))
-                        {
-                            cont += 1;
-                            bungalosDisponibles.add(bungalos.get(i).getId());
-                            System.out.println(cont + " -. " + bungalos.get(i).getId());
-                        }
-                    }
-                }
-
-                if(cont == 0)
-                {
-                    System.out.println("No hay bungalos disponibles.");
-                    return;
-                }
-            }
+            System.out.println("No hay bungalos disponibles.");
+            return;
         }
 
         System.out.print("Introduzca el id del bungalo que desea reservar: ");
-        String id = sc.nextLine();
+        String idLeido = sc.nextLine();
+        String id = new String(" ");
         for(int i = 0; i < bungalosDisponibles.size(); i++)
         {
-            if(bungalosDisponibles.get(i).equals(id))
+            if(bungalosDisponibles.get(i).equals(idLeido))
             {
-                for(int j = 0; j < bungalos.size(); j++)
+                id = idLeido;
+            }
+        }
+
+        if(id.equals(" "))
+        {
+            System.out.println("El id del bungalo seleccionado es erroneo o no esta en la lista.");
+            return;
+        }
+
+        for(int j = 0; j < bungalos.size(); j++)
+        {
+            if(bungalos.get(j).getId().equals(id))
+            {
+                if(adaptado.equals("s"))
                 {
-                    if(bungalos.get(j).getId().equals(id))
-                    {
-                        if(adaptado.equals("s"))
-                        {
-                            reservarAdaptado(bungalos.get(j), fechaInicio, fechaFin);
-                        }
-                        else
-                        {
-                            bungalos.get(j).addReserva(fechaInicio, fechaFin);
-                            System.out.println("Reserva realizada.");
-                            return;
-                        }
-                    }
+                    reservarAdaptado(bungalos.get(j), fechaInicio, fechaFin);
+                }
+                else
+                {
+                    bungalos.get(j).addReserva(fechaInicio, fechaFin);
+                    System.out.println("Reserva realizada.");
+                    return;
                 }
             }
         }
