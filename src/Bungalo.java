@@ -52,4 +52,28 @@ public class Bungalo implements java.io.Serializable
         reservas.addReserva(reserva);
     }
 
+    public boolean eliminarReserva(String id)
+    {
+        return reservas.eliminarReserva(id);
+    }
+
+    public boolean reservarActividad(String id, Actividad act, LocalDate fechaInicio, LocalDate fechaFin)
+    {
+        return reservas.reservarActividad(id, act, fechaInicio, fechaFin);
+    }
+
+    public boolean eliminarReservaActividad(String id)
+    {
+        return reservas.eliminarActividad(id);
+    }
+
+    public void listarReservas()
+    {
+        reservas.listarReservas();
+    }
+
+    public boolean mostrarReserva(String id)
+    {
+        return reservas.mostrarReserva(id);
+    }
 }

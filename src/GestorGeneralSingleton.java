@@ -139,19 +139,19 @@ public class GestorGeneralSingleton implements java.io.Serializable
                     gestBungalos.reservar();
                     break;
                 case 2:
-
+                    gestBungalos.eliminarReserva();
                     break;
                 case 3:
-
+                    gestBungalos.reservarActividad();
                     break;
                 case 4:
-
+                    gestBungalos.eliminarReservaActividad();
                     break;
                 case 5:
-
+                    gestBungalos.listarReservasBungalo();
                     break;
                 case 6:
-
+                    gestBungalos.mostrarReserva();
                     break;
                 case 0:
                     break;

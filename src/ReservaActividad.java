@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class ReservaActividad extends  Reserva
+public class ReservaActividad extends Reserva
 {
     private Actividad actividad;
 
@@ -9,4 +9,10 @@ public class ReservaActividad extends  Reserva
         super(fechaInicio, fechaFin);
         this.actividad = actividad;
     }
+
+    public Actividad getActividad()
+    {
+        return actividad;
+    }
 }
+

@@ -8,12 +8,14 @@ public class GestorBungalos implements java.io.Serializable
     private int contador = 0;
     static GestorBungalos instance;
     private GestorClientes gestClientes;
+    private GestorActividades gestActividades;
     private int contReservas;
 
     private GestorBungalos()
     {
         bungalos = new ArrayList<Bungalo>();
         gestClientes = GestorClientes.getInstance();
+        gestActividades = GestorActividades.getInstance();
     }
 
     public static GestorBungalos getInstance()
@@ -123,7 +125,7 @@ public class GestorBungalos implements java.io.Serializable
         System.out.println("No se ha encontrado el bungalo.");
     }
 
-    public LocalDate crearFecha()
+    public static LocalDate crearFecha()
     {
         Scanner sc = new Scanner(System.in);
         System.out.print("en formato AAAA-MM-DD: ");
@@ -194,7 +196,7 @@ public class GestorBungalos implements java.io.Serializable
             }
             else
             {
-                if(!(bungalos.get(i) instanceof BungaloAdaptado) && bungalos.get(i).getCapacidad() >= numPersonas && bungalos.get(i).comprobarDisponibilidad(fechaInicio, fechaFin))
+                if((!(bungalos.get(i) instanceof BungaloAdaptado)) && bungalos.get(i).getCapacidad() >= numPersonas && bungalos.get(i).comprobarDisponibilidad(fechaInicio, fechaFin))
                 {
                     cont += 1;
                     bungalosDisponibles.add(bungalos.get(i).getId());
@@ -261,5 +263,98 @@ public class GestorBungalos implements java.io.Serializable
         }
 
         hacerReserva(gestClientes.getCliente(id));
+    }
+
+    public void eliminarReserva()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Introduzca el id de la reserva a eliminar: ");
+        String id = sc.nextLine();
+
+        for (int i = 0; i < bungalos.size(); i++)
+        {
+            if(bungalos.get(i).eliminarReserva(id))
+            {
+                return;
+            }
+        }
+        System.out.println("No se ha encontrado la reserva.");
+    }
+
+    public void reservarActividad()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Introduzca el id de la reserva a la que se añadira la actividad: ");
+        String id = sc.nextLine();
+
+        gestActividades.listarActividades();
+        System.out.print("Introduzca el id de la actividad que desea añadir: ");
+        String act = sc.nextLine();
+
+        Actividad actividad = gestActividades.getActividad(act);
+
+        System.out.print("Introduzca la fecha de inicio de la actividad ");
+        LocalDate fechaInicioAct = crearFecha();
+        System.out.print("Introduzca la fecha de fin de la actividad ");
+        LocalDate fechaFinAct = crearFecha();
+
+        for (int i = 0; i < bungalos.size(); i++)
+        {
+            if(bungalos.get(i).reservarActividad(id, actividad, fechaInicioAct, fechaFinAct))
+            {
+                return;
+            }
+            System.out.println("No se ha encontrado la reserva.");
+        }
+    }
+
+    public void eliminarReservaActividad()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Introduzca el id de la reserva de la que se eliminara la actividad: ");
+        String id = sc.nextLine();
+
+        for (int i = 0; i < bungalos.size(); i++)
+        {
+            if(bungalos.get(i).eliminarReservaActividad(id))
+            {
+                return;
+            }
+        }
+    }
+
+    public void listarReservasBungalo()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Introduzca el id del bungalo: ");
+        String id = sc.nextLine();
+
+        for (int i = 0; i < bungalos.size(); i++)
+        {
+            if(bungalos.get(i).getId().equals(id))
+            {
+                System.out.println("Listado de reservas del bungalo " + id + ":");
+                System.out.println("-------------------------------------------");
+                bungalos.get(i).listarReservas();
+                return;
+            }
+        }
+        System.out.println("No se ha encontrado el bungalo.");
+    }
+
+    public void mostrarReserva()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Introduzca el id de la reserva: ");
+        String id = sc.nextLine();
+
+        for (int i = 0; i < bungalos.size(); i++)
+        {
+            if(bungalos.get(i).mostrarReserva(id))
+            {
+                return;
+            }
+        }
+        System.out.println("No se ha encontrado la reserva.");
     }
 }

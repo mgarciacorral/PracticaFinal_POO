@@ -12,6 +12,18 @@ public class GestorActividades implements java.io.Serializable
         actividades = new ArrayList<Actividad>();
     }
 
+    public Actividad getActividad(String id)
+    {
+        for(int i = 0; i < actividades.size(); i++)
+        {
+            if(actividades.get(i).getId().equals(id))
+            {
+                return actividades.get(i);
+            }
+        }
+        return null;
+    }
+
     public static GestorActividades getInstance()
     {
         if (instance == null)
@@ -37,8 +49,8 @@ public class GestorActividades implements java.io.Serializable
     {
         System.out.println("Listado de actividades:");
         System.out.println("----------------------");
-        System.out.println("ID\t\tDescripcion");
-        System.out.println("--\t\t-----------");
+        System.out.println("ID \t\tDescripcion");
+        System.out.println("---\t\t-----------");
 
         for(int i = 0; i < actividades.size(); i++)
         {
