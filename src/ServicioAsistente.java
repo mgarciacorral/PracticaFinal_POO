@@ -5,4 +5,9 @@ public class ServicioAsistente extends ServicioEspecialDecorator
     {
         super(bungalo);
     }
+
+    public float getPrecio()
+    {
+        return super.getPrecio() + 100;
+    }
 }

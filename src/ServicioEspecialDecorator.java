@@ -7,4 +7,9 @@ public class ServicioEspecialDecorator extends Bungalo
         super(bungalo.getId(), bungalo.getNombre(), bungalo.getCapacidad(), bungalo.getPrecio());
         this.bungalo = bungalo;
     }
+
+    public float getPrecio()
+    {
+        return bungalo.getPrecio();
+    }
 }

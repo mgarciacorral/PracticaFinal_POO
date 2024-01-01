@@ -76,4 +76,9 @@ public class Bungalo implements java.io.Serializable
     {
         return reservas.mostrarReserva(id);
     }
+
+    public boolean facturar(String id)
+    {
+        return reservas.facturar(id);
+    }
 }

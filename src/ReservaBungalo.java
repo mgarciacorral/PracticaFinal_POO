@@ -99,4 +99,10 @@ public class ReservaBungalo extends Reserva
 
         return true;
     }
+
+    public boolean facturar(String id)
+    {
+        cliente.facturar(bungalo, reservas, id, getFechaFin());
+        return true;
+    }
 }

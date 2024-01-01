@@ -139,4 +139,18 @@ public class Reserva implements java.io.Serializable
         System.out.println("No se ha encontrado la reserva.");
         return false;
     }
+
+    public boolean facturar(String id)
+    {
+        for(int i = 0; i < reservas.size(); i++)
+        {
+            if(reservas.get(i).getId().equals(id))
+            {
+                reservas.get(i).facturar(id);
+                return true;
+            }
+        }
+        System.out.println("No se ha encontrado la reserva.");
+        return false;
+    }
 }

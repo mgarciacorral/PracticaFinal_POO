@@ -357,4 +357,20 @@ public class GestorBungalos implements java.io.Serializable
         }
         System.out.println("No se ha encontrado la reserva.");
     }
+
+    public void facturar()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Introduzca el id de la reserva: ");
+        String id = sc.nextLine();
+
+        for (int i = 0; i < bungalos.size(); i++)
+        {
+            if(bungalos.get(i).facturar(id))
+            {
+                return;
+            }
+        }
+        System.out.println("No se ha encontrado la reserva.");
+    }
 }

@@ -161,4 +161,35 @@ public class GestorGeneralSingleton implements java.io.Serializable
             }
         }while(opc != 0);
     }
+
+    public void menuFacturacion()
+    {
+        int opc = -1;
+        Scanner sc = new Scanner(System.in);
+        do
+        {
+            System.out.println("\tMenu De Gestion De Facturacion");
+            System.out.println("\t------------------------------\n");
+            System.out.print("1.-Generar factura\n2.-Listar facturas de cliente\n3.-Mostrar informacion de una factura\n0.-Volver al menu principal\n\nElige una opcion: ");
+            opc = sc.nextInt();
+
+            switch(opc)
+            {
+                case 1:
+                    gestBungalos.facturar();
+                    break;
+                case 2:
+                    gestClientes.listarFacturasCliente();
+                    break;
+                case 3:
+                    gestClientes.mostrarFacturaCliente();
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("Opcion no valida, pruebe de nuevo.");
+                    break;
+            }
+        }while(opc != 0);
+    }
 }

@@ -86,4 +86,36 @@ public class GestorClientes implements java.io.Serializable
         }
         return null;
     }
+
+    public void listarFacturasCliente()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Introduzca el identificador fiscal del cliente: ");
+        String id = sc.nextLine();
+        for(int i = 0; i < clientes.size(); i++)
+        {
+            if(clientes.get(i).getId().equals(id))
+            {
+                clientes.get(i).listarFacturas();
+                return;
+            }
+        }
+        System.out.println("No se ha encontrado el cliente.");
+    }
+
+    public void mostrarFacturaCliente()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Introduzca el identificador fiscal del cliente: ");
+        String id = sc.nextLine();
+        for(int i = 0; i < clientes.size(); i++)
+        {
+            if(clientes.get(i).getId().equals(id))
+            {
+                clientes.get(i).mostrarFactura();
+                return;
+            }
+        }
+        System.out.println("No se ha encontrado el cliente.");
+    }
 }

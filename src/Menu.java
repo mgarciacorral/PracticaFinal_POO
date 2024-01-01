@@ -40,7 +40,7 @@ public class Menu
                     gestor.menuReservas();
                     break;
                 case 5:
-
+                    gestor.menuFacturacion();
                     break;
                 case 6:
                     try
