@@ -119,7 +119,6 @@ public class Reserva implements java.io.Serializable
         System.out.println("Listado de reservas:");
         System.out.println("--------------------");
         System.out.println("ID \t\tFecha inicio \tFecha fin");
-        System.out.println("---\t\t------------ \t--------");
         for(int i = 0; i < reservas.size(); i++)
         {
             System.out.println(reservas.get(i).getId() + "\t\t" + reservas.get(i).getFechaInicio() + "\t\t" + reservas.get(i).getFechaFin());

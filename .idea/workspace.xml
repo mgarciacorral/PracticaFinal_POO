@@ -4,20 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02a16236-61f3-466e-9c1c-5a9453c96538" name="Changes" comment="todas las funciones de menu de gestion de reservas terminadas, queda facturacion solo">
-      <change afterPath="$PROJECT_DIR$/gestor.dat" afterDir="false" />
+    <list default="true" id="02a16236-61f3-466e-9c1c-5a9453c96538" name="Changes" comment="menu de fecturacion terminado, queda hacer pruebas de todo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bungalo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bungalo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestor.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Factura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Factura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GestorActividades.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestorActividades.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GestorBungalos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestorBungalos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GestorGeneralSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestorGeneralSingleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Reserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reserva.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ReservaBungalo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReservaBungalo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ServicioAsistente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServicioAsistente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ServicioCatering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServicioCatering.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ServicioEspecialDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServicioEspecialDecorator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +83,8 @@
       <workItem from="1703848479512" duration="6335000" />
       <workItem from="1703935965515" duration="15941000" />
       <workItem from="1704041571144" duration="12303000" />
-      <workItem from="1704121149363" duration="3800000" />
+      <workItem from="1704121149363" duration="4373000" />
+      <workItem from="1704211697218" duration="5284000" />
     </task>
     <task id="LOCAL-00001" summary="prueba">
       <option name="closed" value="true" />
@@ -186,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704054319492</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="menu de fecturacion terminado, queda hacer pruebas de todo">
+      <option name="closed" value="true" />
+      <created>1704126799599</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1704126799600</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +208,17 @@
     <MESSAGE value="reservas base hecho, faltan las de bungalo adaptado" />
     <MESSAGE value="hacer reserva completado 100%, faltan las demas opc del menu reservas, decorator terminado, serializacion puesta como opc del menu principal" />
     <MESSAGE value="todas las funciones de menu de gestion de reservas terminadas, queda facturacion solo" />
-    <option name="LAST_COMMIT_MESSAGE" value="todas las funciones de menu de gestion de reservas terminadas, queda facturacion solo" />
+    <MESSAGE value="menu de fecturacion terminado, queda hacer pruebas de todo" />
+    <option name="LAST_COMMIT_MESSAGE" value="menu de fecturacion terminado, queda hacer pruebas de todo" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

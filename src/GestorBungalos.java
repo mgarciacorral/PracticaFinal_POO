@@ -145,9 +145,11 @@ public class GestorBungalos implements java.io.Serializable
         System.out.print("Desea añadir servicio de catering (s/n): ");
         String opc = sc.nextLine();
 
+        Bungalo bungaloDecorado = bungalo;
+
         if(opc.equals("s"))
         {
-            bungalo = new ServicioCatering(bungalo);
+            bungaloDecorado = new ServicioCatering(bungaloDecorado);
         }
 
         System.out.print("Desea añadir servicio de asistente (s/n): ");
@@ -155,10 +157,10 @@ public class GestorBungalos implements java.io.Serializable
 
         if(opc.equals("s"))
         {
-            bungalo = new ServicioAsistente(bungalo);
+            bungaloDecorado = new ServicioAsistente(bungaloDecorado);
         }
 
-        bungalo.addReserva(new ReservaBungalo(fechaInicio, fechaFin, bungalo, cliente, id));
+        bungalo.addReserva(new ReservaBungalo(fechaInicio, fechaFin, bungaloDecorado, cliente, id));
         System.out.println("Reserva realizada.");
     }
 
@@ -371,6 +373,5 @@ public class GestorBungalos implements java.io.Serializable
                 return;
             }
         }
-        System.out.println("No se ha encontrado la reserva.");
     }
 }

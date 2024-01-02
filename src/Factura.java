@@ -15,6 +15,8 @@ public class Factura implements java.io.Serializable
         this.id = id;
         this.costeTotal = costeTotal;
         this.fechaFacturacion = LocalDate.now();
+        this.bungalo = bungalo;
+        this.actividades = actividades;
     }
 
     public String getId()
@@ -37,9 +39,9 @@ public class Factura implements java.io.Serializable
         return reserva;
     }
 
-    public Bungalo getBungalo()
+    public String getBungalo()
     {
-        return bungalo;
+        return bungalo.getId() + " - " + bungalo.getNombre();
     }
 
     public void listarActividades()

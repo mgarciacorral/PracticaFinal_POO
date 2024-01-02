@@ -50,7 +50,6 @@ public class GestorActividades implements java.io.Serializable
         System.out.println("Listado de actividades:");
         System.out.println("----------------------");
         System.out.println("ID \t\tDescripcion");
-        System.out.println("---\t\t-----------");
 
         for(int i = 0; i < actividades.size(); i++)
         {
