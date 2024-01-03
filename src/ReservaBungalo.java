@@ -2,12 +2,23 @@ import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+/**
+ * Clase ReservaBungalo
+ */
 public class ReservaBungalo extends Reserva
 {
     private Bungalo bungalo;
     private Cliente cliente;
     private String id;
 
+    /**
+     * Constructor de la clase ReservaBungalo
+     * @param fechaInicio
+     * @param fechaFin
+     * @param bungalo
+     * @param cliente
+     * @param id
+     */
     public  ReservaBungalo(LocalDate fechaInicio, LocalDate fechaFin, Bungalo bungalo, Cliente cliente, String id)
     {
         super(fechaInicio, fechaFin);
@@ -16,21 +27,36 @@ public class ReservaBungalo extends Reserva
         this.id = id;
     }
 
+    /**
+     * @return id de la reserva
+     */
     public String getId()
     {
         return id;
     }
 
+    /**
+     * @return instancia del bungalo
+     */
     public Bungalo getBungalo()
     {
         return bungalo;
     }
 
+    /**
+     * @return instancia del cliente
+     */
     public Cliente getCliente()
     {
         return cliente;
     }
 
+    /**
+     * añade una actividad a una reserva
+     * @param act
+     * @param fechaInicioAct
+     * @param fechaFinAct
+     */
     public void addActividad(Actividad act, LocalDate fechaInicioAct, LocalDate fechaFinAct)
     {
         if(fechaInicioAct.isAfter(getFechaInicio()) && fechaFinAct.isBefore(getFechaFin()))
@@ -44,6 +70,9 @@ public class ReservaBungalo extends Reserva
         }
     }
 
+    /**
+     * @return true si se ha mostrado correctamente
+     */
     public void listarActividadesReserva()
     {
         System.out.println("Listado de actividades reservadas:");
@@ -58,6 +87,10 @@ public class ReservaBungalo extends Reserva
     }
 
 
+    /**
+     * @param id
+     * @return true si se ha eliminado correctamente
+     */
     public boolean eliminarActividad(String id)
     {
         Scanner sc = new Scanner(System.in);
@@ -86,6 +119,10 @@ public class ReservaBungalo extends Reserva
         return false;
     }
 
+    /**
+     * @param id identificador de la reserva
+     * @return true si se ha mostrado correctamente
+     */
     public boolean mostrarReserva(String id)
     {
         System.out.println("Informacion de la reserva:");
@@ -100,6 +137,10 @@ public class ReservaBungalo extends Reserva
         return true;
     }
 
+    /**
+     * @param id de la factura
+     * @return true si se ha facturado correctamente
+     */
     public boolean facturar(String id)
     {
         cliente.facturar(bungalo, reservas, id, getFechaFin(), getFechaInicio());

@@ -2,15 +2,25 @@ import Utiles.MySerializer;
 
 import java.util.Scanner;
 
+/**
+ * Clase Main
+ */
 public class Menu
 {
     private GestorGeneralSingleton gestor;
 
+    /**
+     * Constructor de la clase Menu
+     * @param gestor
+     */
     public Menu(GestorGeneralSingleton gestor)
     {
         this.gestor = gestor;
     }
 
+    /**
+     * Ejecuta el menu principal
+     */
     public void ejecutar()
     {
         int opc = -1;

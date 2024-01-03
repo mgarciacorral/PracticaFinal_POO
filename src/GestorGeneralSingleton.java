@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * Clase GestorGeneralSingleton
+ */
 public class GestorGeneralSingleton implements java.io.Serializable
 {
     static GestorGeneralSingleton instance = null;
@@ -7,6 +10,9 @@ public class GestorGeneralSingleton implements java.io.Serializable
     private GestorBungalos gestBungalos;
     private GestorActividades gestActividades;
 
+    /**
+     * Constructor de la clase GestorGeneralSingleton
+     */
     private GestorGeneralSingleton()
     {
         gestClientes = GestorClientes.getInstance();
@@ -14,6 +20,9 @@ public class GestorGeneralSingleton implements java.io.Serializable
         gestActividades = GestorActividades.getInstance();
     }
 
+    /**
+     * @return instancia de GestorGeneralSingleton
+     */
     public static GestorGeneralSingleton getInstance()
     {
         if (instance == null)
@@ -23,6 +32,9 @@ public class GestorGeneralSingleton implements java.io.Serializable
         return instance;
     }
 
+    /**
+     * Menu de bungalos
+     */
     public void menuBungalos()
     {
         int opc = -1;
@@ -60,6 +72,9 @@ public class GestorGeneralSingleton implements java.io.Serializable
         }while(opc != 0);
     }
 
+    /**
+     * Menu de clientes
+     */
     public void menuClientes()
     {
         int opc = -1;
@@ -91,6 +106,9 @@ public class GestorGeneralSingleton implements java.io.Serializable
         }while(opc != 0);
     }
 
+    /**
+     * Menu de actividades
+     */
     public void menuActividades()
     {
         int opc = -1;
@@ -122,6 +140,9 @@ public class GestorGeneralSingleton implements java.io.Serializable
         }while(opc != 0);
     }
 
+    /**
+     * Menu de facturacion
+     */
     public void menuReservas()
     {
         int opc = -1;
@@ -162,6 +183,9 @@ public class GestorGeneralSingleton implements java.io.Serializable
         }while(opc != 0);
     }
 
+    /**
+     * Menu de facturacion
+     */
     public void menuFacturacion()
     {
         int opc = -1;

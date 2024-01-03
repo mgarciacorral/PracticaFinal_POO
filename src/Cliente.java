@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+/**
+ * Clase Cliente
+ */
 public class Cliente implements java.io.Serializable
 {
     private String identificador;
@@ -10,6 +13,12 @@ public class Cliente implements java.io.Serializable
     private ArrayList<Factura> facturas;
     private int contFacturas = 0;
 
+    /**
+     * Constructor de la clase Cliente
+     * @param id
+     * @param nombre
+     * @param telefono
+     */
     public Cliente(String id, String nombre, String telefono)
     {
         this.identificador = id;
@@ -18,21 +27,37 @@ public class Cliente implements java.io.Serializable
         facturas = new ArrayList<Factura>();
     }
 
+    /**
+     * @return identificador del cliente
+     */
     public String getId()
     {
         return identificador;
     }
 
+    /**
+     * @return nombre del cliente
+     */
     public String getNombre()
     {
         return nombre;
     }
 
+    /**
+     * @return telefono del cliente
+     */
     public String getTelefono()
     {
         return telefono;
     }
 
+    /**
+     * Añade una factura
+     * @param costeTotal
+     * @param bungalo
+     * @param actividades
+     * @param reserva
+     */
     public void addFactura(float costeTotal, Bungalo bungalo, ArrayList<Reserva> actividades, String reserva)
     {
         String id = "" + contFacturas;
@@ -44,6 +69,14 @@ public class Cliente implements java.io.Serializable
         contFacturas++;
     }
 
+    /**
+     * Factura una reserva
+     * @param bungalo
+     * @param actividades
+     * @param id
+     * @param FechaFin
+     * @param FechaInicio
+     */
     public void facturar(Bungalo bungalo, ArrayList<Reserva> actividades, String id, LocalDate FechaFin, LocalDate FechaInicio)
     {
         for(int i = 0;i < facturas.size(); i++)
@@ -72,6 +105,9 @@ public class Cliente implements java.io.Serializable
         }
     }
 
+    /**
+     * Muestra el listado de facturas
+     */
     public void listarFacturas()
     {
         System.out.println("Listado de facturas:");
@@ -84,6 +120,9 @@ public class Cliente implements java.io.Serializable
         }
     }
 
+    /**
+     * Muestra la informacion de una factura
+     */
     public void mostrarFactura()
     {
         Scanner sc = new Scanner(System.in);

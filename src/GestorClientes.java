@@ -1,11 +1,17 @@
 import java.util.ArrayList;
 import  java.util.Scanner;
 
+/**
+ * Clase GestorClientes
+ */
 public class GestorClientes implements java.io.Serializable
 {
     private ArrayList<Cliente> clientes;
     static GestorClientes instance;
 
+    /**
+     * Constructor de la clase GestorClientes
+     */
     private GestorClientes()
     {
         clientes = new ArrayList<Cliente>();
@@ -20,6 +26,9 @@ public class GestorClientes implements java.io.Serializable
         return instance;
     }
 
+    /**
+     * Añade un cliente
+     */
     public  void addCliente()
     {
         Scanner sc = new Scanner(System.in);
@@ -42,6 +51,9 @@ public class GestorClientes implements java.io.Serializable
         clientes.add(new Cliente(id, nombre, telefono));
     }
 
+    /**
+     * lista los clientes
+     */
     public void  listarClientes()
     {
         System.out.println("Listado de clientes:");
@@ -55,6 +67,9 @@ public class GestorClientes implements java.io.Serializable
         }
     }
 
+    /**
+     * Muestra la informacion de un cliente
+     */
     public void  mostrarCliente()
     {
         Scanner sc = new Scanner(System.in);
@@ -75,6 +90,10 @@ public class GestorClientes implements java.io.Serializable
         System.out.println("No se ha encontrado el cliente.");
     }
 
+    /**
+     * @param id identificador del cliente
+     * @return cliente
+     */
     public Cliente getCliente(String id)
     {
         for(int i = 0;i < clientes.size(); i++)
@@ -87,6 +106,9 @@ public class GestorClientes implements java.io.Serializable
         return null;
     }
 
+    /**
+     * Lista las facturas que ha tenido un cliente
+     */
     public void listarFacturasCliente()
     {
         Scanner sc = new Scanner(System.in);
@@ -103,6 +125,9 @@ public class GestorClientes implements java.io.Serializable
         System.out.println("No se ha encontrado el cliente.");
     }
 
+    /**
+     * Muestra la informacion de una factura
+     */
     public void mostrarFacturaCliente()
     {
         Scanner sc = new Scanner(System.in);

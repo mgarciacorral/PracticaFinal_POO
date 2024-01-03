@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.LocalDate;
 
+/**
+ * Clase GestorBungalos
+ */
 public class GestorBungalos implements java.io.Serializable
 {
     private ArrayList<Bungalo> bungalos;
@@ -11,6 +14,9 @@ public class GestorBungalos implements java.io.Serializable
     private GestorActividades gestActividades;
     private int contReservas;
 
+    /**
+     * Constructor de la clase GestorBungalos
+     */
     private GestorBungalos()
     {
         bungalos = new ArrayList<Bungalo>();
@@ -18,6 +24,9 @@ public class GestorBungalos implements java.io.Serializable
         gestActividades = GestorActividades.getInstance();
     }
 
+    /**
+     * @return instancia de GestorBungalos
+     */
     public static GestorBungalos getInstance()
     {
         if (instance == null)
@@ -27,6 +36,9 @@ public class GestorBungalos implements java.io.Serializable
         return instance;
     }
 
+    /**
+     * Da de alta un bungalo
+     */
     public void altaBungalo()
     {
         String id = "B" + contador;
@@ -52,6 +64,9 @@ public class GestorBungalos implements java.io.Serializable
         }
     }
 
+    /**
+     * Da de baja un bungalo
+     */
     public void bajaBungalo()
     {
         Scanner sc = new Scanner(System.in);
@@ -77,6 +92,9 @@ public class GestorBungalos implements java.io.Serializable
         System.out.println("No se ha encontrado el bungalo.");
     }
 
+    /**
+     * Lista los bungalos adaptados
+     */
     public void listarBungalosAdaptados()
     {
         System.out.println("Listado de bungalos adaptados: \n\nID\t\tCapacidad");
@@ -91,6 +109,9 @@ public class GestorBungalos implements java.io.Serializable
 
     }
 
+    /**
+     * Lista los bungalos no adaptados
+     */
     public void listarBungalosNoAdaptados()
     {
         System.out.println("Listado de bungalos NO adaptados: \n\nID\t\tCapacidad");
@@ -103,6 +124,9 @@ public class GestorBungalos implements java.io.Serializable
         }
     }
 
+    /**
+     * Muestra la informacion de un bungalo
+     */
     public void mostrarBungalo()
     {
         Scanner sc = new Scanner(System.in);
@@ -125,6 +149,10 @@ public class GestorBungalos implements java.io.Serializable
         System.out.println("No se ha encontrado el bungalo.");
     }
 
+    /**
+     * Transforma un input a formato LocalDate
+     * @return fecha
+     */
     public static LocalDate crearFecha()
     {
         Scanner sc = new Scanner(System.in);
@@ -138,6 +166,14 @@ public class GestorBungalos implements java.io.Serializable
         }
     }
 
+    /**
+     * Reserva un bungalo adaptado
+     * @param bungalo
+     * @param fechaInicio
+     * @param fechaFin
+     * @param cliente
+     * @param id
+     */
     public void reservarAdaptado(Bungalo bungalo, LocalDate fechaInicio, LocalDate fechaFin, Cliente cliente, String id)
     {
         Scanner sc = new Scanner(System.in);
@@ -164,6 +200,10 @@ public class GestorBungalos implements java.io.Serializable
         System.out.println("Reserva realizada.");
     }
 
+    /**
+     * Hace una reserva
+     * @param cliente cliente que va a hacer la reserva
+     */
     public void hacerReserva(Cliente cliente)
     {
         Scanner sc = new Scanner(System.in);
@@ -252,6 +292,9 @@ public class GestorBungalos implements java.io.Serializable
         }
     }
 
+    /**
+     * Reserva un bungalo a nombre de un cliente
+     */
     public void reservar()
     {
         Scanner sc = new Scanner(System.in);
@@ -267,6 +310,9 @@ public class GestorBungalos implements java.io.Serializable
         hacerReserva(gestClientes.getCliente(id));
     }
 
+    /**
+     * Elimina una reserva
+     */
     public void eliminarReserva()
     {
         Scanner sc = new Scanner(System.in);
@@ -283,6 +329,9 @@ public class GestorBungalos implements java.io.Serializable
         System.out.println("No se ha encontrado la reserva.");
     }
 
+    /**
+     * Añade una actividad a una reserva
+     */
     public void reservarActividad()
     {
         Scanner sc = new Scanner(System.in);
@@ -310,6 +359,9 @@ public class GestorBungalos implements java.io.Serializable
         }
     }
 
+    /**
+     * Elimina una actividad de una reserva
+     */
     public void eliminarReservaActividad()
     {
         Scanner sc = new Scanner(System.in);
@@ -325,6 +377,9 @@ public class GestorBungalos implements java.io.Serializable
         }
     }
 
+    /**
+     * Lista las reservas de un bungalo
+     */
     public void listarReservasBungalo()
     {
         Scanner sc = new Scanner(System.in);
@@ -344,6 +399,9 @@ public class GestorBungalos implements java.io.Serializable
         System.out.println("No se ha encontrado el bungalo.");
     }
 
+    /**
+     * Muestra la informacion de una reserva
+     */
     public void mostrarReserva()
     {
         Scanner sc = new Scanner(System.in);
@@ -360,6 +418,9 @@ public class GestorBungalos implements java.io.Serializable
         System.out.println("No se ha encontrado la reserva.");
     }
 
+    /**
+     * Crea una factura de una reserva
+     */
     public void facturar()
     {
         Scanner sc = new Scanner(System.in);

@@ -1,17 +1,27 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Clase GestorActividades
+ */
 public class GestorActividades implements java.io.Serializable
 {
     private ArrayList<Actividad> actividades;
     private int contador = 0;
     static GestorActividades instance;
 
+    /**
+     * Constructor de la clase GestorActividades
+     */
     private GestorActividades()
     {
         actividades = new ArrayList<Actividad>();
     }
 
+    /**
+     * @param id de la actividad
+     * @return instancia de la actividad
+     */
     public Actividad getActividad(String id)
     {
         for(int i = 0; i < actividades.size(); i++)
@@ -24,6 +34,9 @@ public class GestorActividades implements java.io.Serializable
         return null;
     }
 
+    /**
+     * @return instancia de GestorActividades
+     */
     public static GestorActividades getInstance()
     {
         if (instance == null)
@@ -33,6 +46,9 @@ public class GestorActividades implements java.io.Serializable
         return instance;
     }
 
+    /**
+     * Añade una actividad
+     */
     public void addActividad()
     {
         String id = "A" + contador;
@@ -45,6 +61,9 @@ public class GestorActividades implements java.io.Serializable
         actividades.add(new Actividad(id, descripcion, precio));
     }
 
+    /**
+     * Lista las actividades
+     */
     public void listarActividades()
     {
         System.out.println("Listado de actividades:");
@@ -57,6 +76,9 @@ public class GestorActividades implements java.io.Serializable
         }
     }
 
+    /**
+     * Muestra la informacion de una actividad
+     */
     public void mostrarActividad()
     {
         Scanner sc = new Scanner(System.in);

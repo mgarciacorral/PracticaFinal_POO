@@ -1,6 +1,9 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ * Clase Factura
+ */
 public class Factura implements java.io.Serializable
 {
     private String id;
@@ -10,6 +13,14 @@ public class Factura implements java.io.Serializable
     private ArrayList<Reserva> actividades;
     private String reserva;
 
+    /**
+     * Constructor de la clase Factura
+     * @param id
+     * @param costeTotal
+     * @param bungalo
+     * @param actividades
+     * @param reserva
+     */
     public Factura(String id, float costeTotal, Bungalo bungalo, ArrayList<Reserva> actividades, String reserva)
     {
         this.id = id;
@@ -19,31 +30,49 @@ public class Factura implements java.io.Serializable
         this.actividades = actividades;
     }
 
+    /**
+     * @return id de la factura
+     */
     public String getId()
     {
         return id;
     }
 
+    /**
+     * @return coste total
+     */
     public float getCosteTotal()
     {
         return costeTotal;
     }
 
+    /**
+     * @return fecha de facturacion
+     */
     public LocalDate getFechaFacturacion()
     {
         return fechaFacturacion;
     }
 
+    /**
+     * @return reserva
+     */
     public String getReserva()
     {
         return reserva;
     }
 
+    /**
+     * @return bungalo reservado
+     */
     public String getBungalo()
     {
         return bungalo.getId() + " - " + bungalo.getNombre();
     }
 
+    /**
+     * Muestra el listado de actividades reservadas
+     */
     public void listarActividades()
     {
         System.out.println("Listado de actividades reservadas:");
