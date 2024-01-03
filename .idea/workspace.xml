@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02a16236-61f3-466e-9c1c-5a9453c96538" name="Changes" comment="arreglos varios, en principio todo terminado">
+    <list default="true" id="02a16236-61f3-466e-9c1c-5a9453c96538" name="Changes" comment="JavaDoc hecho, queda JUnit">
+      <change afterPath="$PROJECT_DIR$/gestor.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Actividad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actividad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bungalo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bungalo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BungaloAdaptado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BungaloAdaptado.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Factura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Factura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GestorActividades.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestorActividades.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GestorBungalos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestorBungalos.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +80,7 @@
       <workItem from="1704041571144" duration="12303000" />
       <workItem from="1704121149363" duration="4373000" />
       <workItem from="1704211697218" duration="5373000" />
-      <workItem from="1704305291881" duration="875000" />
+      <workItem from="1704305291881" duration="5829000" />
     </task>
     <task id="LOCAL-00001" summary="prueba">
       <option name="closed" value="true" />
@@ -199,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704217128695</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="JavaDoc hecho, queda JUnit">
+      <option name="closed" value="true" />
+      <created>1704307049029</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1704307049029</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,7 +222,8 @@
     <MESSAGE value="todas las funciones de menu de gestion de reservas terminadas, queda facturacion solo" />
     <MESSAGE value="menu de fecturacion terminado, queda hacer pruebas de todo" />
     <MESSAGE value="arreglos varios, en principio todo terminado" />
-    <option name="LAST_COMMIT_MESSAGE" value="arreglos varios, en principio todo terminado" />
+    <MESSAGE value="JavaDoc hecho, queda JUnit" />
+    <option name="LAST_COMMIT_MESSAGE" value="JavaDoc hecho, queda JUnit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -112,8 +112,7 @@ public class Cliente implements java.io.Serializable
     {
         System.out.println("Listado de facturas:");
         System.out.println("--------------------");
-        System.out.println("Id \t\tCliente  \t\tFecha");
-
+        System.out.println("Id \t\t\t\tCliente  \t\tFecha");
         for(int i = 0; i < facturas.size(); i++)
         {
             System.out.println(facturas.get(i).getId() + "\t\t" + identificador + "\t\t" + facturas.get(i).getFechaFacturacion());
