@@ -218,7 +218,6 @@ public class Reserva implements java.io.Serializable
                 return true;
             }
         }
-        System.out.println("No se ha encontrado la reserva.");
         return false;
     }
 }

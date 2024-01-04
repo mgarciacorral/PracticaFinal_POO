@@ -79,9 +79,9 @@ public class Cliente implements java.io.Serializable
      */
     public void facturar(Bungalo bungalo, ArrayList<Reserva> actividades, String id, LocalDate FechaFin, LocalDate FechaInicio)
     {
-        for(int i = 0;i < facturas.size(); i++)
+        for (Factura factura : facturas)
         {
-            if(facturas.get(i).getReserva().equals(id))
+            if (factura.getReserva().equals(id))
             {
                 System.out.println("La reserva ya ha sido facturada");
                 return;

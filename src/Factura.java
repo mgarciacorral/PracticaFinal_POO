@@ -28,6 +28,7 @@ public class Factura implements java.io.Serializable
         this.fechaFacturacion = LocalDate.now();
         this.bungalo = bungalo;
         this.actividades = actividades;
+        this.reserva = reserva;
     }
 
     /**
@@ -59,7 +60,7 @@ public class Factura implements java.io.Serializable
      */
     public String getReserva()
     {
-        return reserva;
+        return reserva + "";
     }
 
     /**

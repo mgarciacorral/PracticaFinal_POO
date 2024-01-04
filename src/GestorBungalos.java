@@ -256,7 +256,7 @@ public class GestorBungalos implements java.io.Serializable
         Scanner s = new Scanner(System.in);
         String idLeido;
         idLeido = s.nextLine();
-        String id = new String(" ");
+        String id = " ";
 
         for(int i = 0; i < bungalosDisponibles.size(); i++)
         {
@@ -423,9 +423,9 @@ public class GestorBungalos implements java.io.Serializable
      */
     public void facturar()
     {
-        Scanner sc = new Scanner(System.in);
+        Scanner sca = new Scanner(System.in);
         System.out.print("Introduzca el id de la reserva: ");
-        String id = sc.nextLine();
+        String id = sca.nextLine();
 
         for (int i = 0; i < bungalos.size(); i++)
         {
@@ -434,5 +434,6 @@ public class GestorBungalos implements java.io.Serializable
                 return;
             }
         }
+        System.out.println("No se ha encontrado la reserva.");
     }
 }
