@@ -18,6 +18,6 @@ public class ServicioAsistente extends ServicioEspecialDecorator
      */
     public float getPrecio()
     {
-        return super.getPrecio() + 100;
+        return (super.getPrecio() + 15);
     }
 }

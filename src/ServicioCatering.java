@@ -18,6 +18,6 @@ public class ServicioCatering extends ServicioEspecialDecorator
      */
     public float getPrecio()
     {
-        return super.getPrecio() + 50;
+        return super.getPrecio() + 10;
     }
 }
